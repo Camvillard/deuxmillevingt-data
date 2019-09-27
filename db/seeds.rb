@@ -6,6 +6,15 @@ Pickup.destroy_all
 Order.destroy_all
 OrderItem.destroy_all
 
+User.create!(
+  email: 'ca.villard@gmail.com',
+  name: 'camille',
+  address: '5807 rue  St Urbain',
+  zip_code: 'H2T  2X4',
+  country: 'Canada',
+  city: 'Montréal'
+)
+
 Product.create!(
   name: 'maxi calendrier',
   description: 'un très cool calendrier',
