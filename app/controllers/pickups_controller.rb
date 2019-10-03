@@ -1,6 +1,6 @@
 class PickupsController < ApplicationController
   def index
-    @products = Pickup.all
-    render json: @products
+    @pickups = Pickup.all
+    render json: @pickups
   end
 end
