@@ -22,9 +22,15 @@ Product.create!(
 )
 
 Pickup.create!(
-  name: 'Canada',
-  description: 'livraison au Canada',
+  name: 'colis simple',
+  description: 'livraison par colis simple, sans suivi, dans un tube.',
   price: 10
+)
+
+Pickup.create!(
+  name: 'colis suivi',
+  description: 'livraison par suivi, dans un tube.',
+  price: 20
 )
 
 Pickup.create!(
