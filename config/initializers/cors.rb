@@ -5,21 +5,35 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-Rails.application.config.middleware.insert_before 0, Rack::Cors do
-  allow do
-    origins 'https://serene-fermi-fdc0d5.netlify.com/'
 
-    resource '*',
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+if Rails.env == "development"
+
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+
+    allow do
+      origins 'http://localhost:3000'
+
+      resource '*',
+        headers: :any,
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    end
+
   end
 
-  allow do
-    origins 'http://localhost:3000'
+else
 
-    resource '*',
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+
+    allow do
+      origins 'https://serene-fermi-fdc0d5.netlify.com'
+
+      resource '*',
+        headers: :any,
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    end
+
   end
 
 end
+
+
