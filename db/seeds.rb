@@ -2,7 +2,7 @@ puts  "destroying old products"
 
 Product.destroy_all
 User.destroy_all
-Pickup.destroy_all
+Shipping.destroy_all
 Order.destroy_all
 OrderItem.destroy_all
 
@@ -21,22 +21,47 @@ Product.create!(
   price: 52
 )
 
-Pickup.create!(
+Shipping.create!(
   name: 'colis simple',
-  description: 'livraison par colis simple, sans suivi, dans un tube.',
-  price: 10
+  price: 12,
+  country: 'Canada'
 )
 
-Pickup.create!(
+Shipping.create!(
   name: 'colis suivi',
-  description: 'livraison par suivi, dans un tube.',
-  price: 20
+  price: 16,
+  country: 'Canada'
 )
 
-Pickup.create!(
+Shipping.create!(
   name: 'Ramassage',
-  description: 'ramassage chez Bouche Bée, Hochelaga',
-  price: 0
+  price: 0,
+  country: 'Canada'
 )
+
+Shipping.create!(
+  name: 'colis simple',
+  price: 20,
+  country: 'US'
+)
+
+Shipping.create!(
+  name: 'colis suivi',
+  price: 28,
+  country: 'US'
+)
+
+Shipping.create!(
+  name: 'colis simple',
+  price: 50,
+  country: 'Rest of the world'
+)
+
+Shipping.create!(
+  name: 'colis suivi',
+  price: 68,
+  country: 'Rest of the world'
+)
+
 
 puts  "seeds completed"

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PickupsControllerTest < ActionDispatch::IntegrationTest
+class ShippingTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
