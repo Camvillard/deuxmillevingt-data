@@ -10,14 +10,23 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.create!(order_params)
+    session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+          name: "maxi calendrier",
+          amount: @order.price_cents,
+          currency: 'cad',
+          quantity: 1
+        }],
+        success_url: 'http://localhost/3000',
+        cancel_url: 'http://localhost/3000'
+      )
+    @order.update(checkout_session_id: session.id)
 
-    if @order.save
-      render json: @order, status: :created
-    else
-      render json: @order.errors, status: :unprocessable_entity
-    end
+    render json: @order, status: :created
   end
+
 
   def update
 
