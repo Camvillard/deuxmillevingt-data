@@ -9,8 +9,8 @@ OrderItem.destroy_all
 User.create!(
   email: 'ca.villard@gmail.com',
   name: 'camille',
-  address: '5807 rue  St Urbain',
-  zip_code: 'H2T  2X4',
+  address: '7337 avenue de Chateaubriand',
+  zip_code: 'H2R 2L7',
   country: 'Canada',
   city: 'Montréal'
 )
@@ -34,7 +34,7 @@ Shipping.create!(
 )
 
 Shipping.create!(
-  name: 'Ramassage',
+  name: 'Ramassage chez Bouche Bée',
   price: 0,
   country: 'Canada'
 )
