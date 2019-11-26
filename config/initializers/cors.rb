@@ -8,24 +8,10 @@
 
 # if Rails.env == "development"
 
-  Rails.application.config.middleware.insert_before 0, Rack::Cors do
-
-    allow do
-      origins 'http://localhost:3000'
-
-      resource '*',
-        headers: :any,
-        methods: [:get, :post, :put, :patch, :delete, :options, :head]
-    end
-
-  end
-
-# else
-
   # Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
   #   allow do
-  #     origins 'https://deuxmillevingt.netlify.com'
+  #     origins 'http://localhost:3000'
 
   #     resource '*',
   #       headers: :any,
@@ -33,6 +19,20 @@
   #   end
 
   # end
+
+# else
+
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+
+    allow do
+      origins 'https://deuxmillevingt.netlify.com'
+
+      resource '*',
+        headers: :any,
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    end
+
+  end
 
 # end
 
