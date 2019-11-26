@@ -15,6 +15,7 @@ gem "pg"
 gem 'puma', '~> 3.11'
 gem "dotenv-rails"
 gem 'stripe_event'
+gem 'postmark-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
