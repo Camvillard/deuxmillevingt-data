@@ -6,12 +6,26 @@
 # Read more: https://github.com/cyu/rack-cors
 
 
-if Rails.env == "development"
+# if Rails.env == "development"
+
+#   Rails.application.config.middleware.insert_before 0, Rack::Cors do
+
+#     allow do
+#       origins 'http://localhost:3000'
+
+#       resource '*',
+#         headers: :any,
+#         methods: [:get, :post, :put, :patch, :delete, :options, :head]
+#     end
+
+#   end
+
+# else
 
   Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
     allow do
-      origins 'http://localhost:3000'
+      origins 'https://deuxmillevingt.netlify.com'
 
       resource '*',
         headers: :any,
@@ -20,20 +34,6 @@ if Rails.env == "development"
 
   end
 
-else
-
-  Rails.application.config.middleware.insert_before 0, Rack::Cors do
-
-    allow do
-      origins 'https://deuxmillevingt.netlify.com/'
-
-      resource '*',
-        headers: :any,
-        methods: [:get, :post, :put, :patch, :delete, :options, :head]
-    end
-
-  end
-
-end
+# end
 
 
