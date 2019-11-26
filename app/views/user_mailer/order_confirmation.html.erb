@@ -1,0 +1,17 @@
+
+<p>
+  <%= @user.name %>, find me in app/views/user_mailer/welcome.html.erb
+</p>
+
+
+<div class="confirmation-mail">
+  <h1>confirmation de commande</h1>
+  <p>bonjour, <%= @user.name %> !</p>
+  <p>ceci est la confirmation de ta commande.</p>
+  <p class="resume-commande">
+    <p class="commande-item"> montant de la commande : <span class="commande-detail"><%= @order.price_cents %></span> </p>
+    <p class="commande-item"> adresse de livraison : <span class="commande-detail"><%= @user.address %></span></p>
+  </p>
+
+
+</div>

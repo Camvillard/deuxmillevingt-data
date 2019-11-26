@@ -11,22 +11,14 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create!(order_params)
-    quantity = @order.order_items.size
-    # session = Stripe::Checkout::Session.create(
-    #     payment_method_types: ['card'],
-    #     line_items: [{
-    #       name: "maxi calendrier",
-    #       amount: 4,
-    #       currency: 'cad',
-    #       quantity: quantity
-    #     }],
-    #     success_url: 'http://localhost/3000',
-    #     cancel_url: 'http://localhost/3000'
-    #   )
-    # @order.update(checkout_session_id: session.id)
-    charge_order
+    if charge_order
+      mail = UserMailer.with(order: @order, user: @order.user).order_confirmation
+      mail.deliver_now
+      render json: @order, status: :created
+    else
+      render json: @order, status: :unprocessable_entity
+    end
 
-    render json: @order, status: :created
   end
 
   def charge_order
