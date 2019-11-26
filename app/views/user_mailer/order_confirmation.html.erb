@@ -1,17 +1,47 @@
-
-<p>
-  <%= @user.name %>, find me in app/views/user_mailer/welcome.html.erb
-</p>
-
-
 <div class="confirmation-mail">
-  <h1>confirmation de commande</h1>
-  <p>bonjour, <%= @user.name %> !</p>
-  <p>ceci est la confirmation de ta commande.</p>
-  <p class="resume-commande">
-    <p class="commande-item"> montant de la commande : <span class="commande-detail"><%= @order.price_cents %></span> </p>
-    <p class="commande-item"> adresse de livraison : <span class="commande-detail"><%= @user.address %></span></p>
-  </p>
 
+  <div class="email-header padding-left">
+
+    <h1 class="">confirmation de commande</h1>
+    <hr class="border-40">
+    <h4 class="">bonjour, <%= @user.name %> !</h4>
+    <p>ceci est la confirmation de ta commande de maxi calendrier.</p>
+
+  </div>
+
+  <div class="email-content padding-left">
+    <div class="resume-commande">
+
+      <div class="commande-item">
+        <p class="commande-title"> montant de la commande /</p>
+        <p class="commande-detail"><%= @order.price_cents / 100 %> $ CAD</p>
+      </div>
+
+      <div class="commande-item">
+        <p class="commande-title">méthode de livraison /</p>
+        <p class="commande-detail"><%= @order.shipping.name %></p>
+        <div class="commande-note">
+          <%# if @order.shipping.name == "Ramassage chez Bouche Bée" %>
+            <p>3772 Rue Ontario Est</p>
+            <p>Montréal, QC, H1W 1S2</p>
+            <p>(438) 476-8394</p>
+          <%# end %>
+        </div>
+      </div>
+
+      <div class="commande-item">
+        <p class="commande-title">adresse de livraison /</p>
+        <p class="commande-detail"><%= @user.address %></p>
+        <p class="commande-detail"><%= @user.zip_code + " " + @user.city + " " + @user.country %></p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="enail-footer padding-left">
+    <p>pour toute réclamation, information, ou besoin urgent d'exprimer quelque chose, c'est ici :
+    <span class="email-white">salut@cdltbisou.com</span></p>
+  </div>
 
 </div>
