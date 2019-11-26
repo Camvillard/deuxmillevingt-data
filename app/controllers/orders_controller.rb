@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
 
       charge = Stripe::Charge::create({
         customer: customer.id,
-        amount: 2,
+        amount: 200,
         currency: 'cad'
       })
 
